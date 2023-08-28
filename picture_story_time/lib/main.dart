@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 void main() {
   runApp(PictureStoryApp());
@@ -69,6 +70,7 @@ class StoryViewerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterTts tts = FlutterTts();
     return Scaffold(
       appBar: AppBar(
         title: Text(story.title),
@@ -92,6 +94,7 @@ class StoryViewerScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Implement interactive elements or read-aloud functionality
+                tts.speak(story.content);
               },
               child: Text('Read Aloud'),
             ),
